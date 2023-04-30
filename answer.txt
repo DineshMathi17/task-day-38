@@ -1,0 +1,536 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\Admin> mongosh
+Current Mongosh Log ID: 644b7e7d1b9b898bf4bd3438
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.8.0
+Using MongoDB:          6.0.5
+Using Mongosh:          1.8.0
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-04-24T21:20:35.784+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+test> show dbs
+admin        40.00 KiB
+config      108.00 KiB
+dinesh       48.00 KiB
+guvi         72.00 KiB
+local        72.00 KiB
+zenclasses    8.00 KiB
+test> use zenclasses
+switched to db zenclasses
+zenclasses> db.users.insertMany([
+...     {
+...         "user_id":"1",
+...         "name":"dinesh",
+...         "email":"dinesh@gmail.com",
+...     },
+...     {
+...         "user_id":"2",
+...         "name":"bhuvanesh",
+...         "email":"bhuvanesh@gmail.com",
+...     },
+...     {
+...         "user_id":"3",
+...         "name":"sai",
+...         "email":"sai@gmail.com",
+...     },
+...     {
+...         "user_id":"4",
+...         "name":"kavin",
+...         "email":"kavin@gmail.com",
+...     },
+...     {
+...         "user_id":"5",
+...         "name":"kannan",
+...         "email":"kannan@gmail.com",
+...     }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("644b7eafa43da3bf6dd14116"),
+    '1': ObjectId("644b7eafa43da3bf6dd14117"),
+    '2': ObjectId("644b7eafa43da3bf6dd14118"),
+    '3': ObjectId("644b7eafa43da3bf6dd14119"),
+    '4': ObjectId("644b7eafa43da3bf6dd1411a")
+  }
+}
+zenclasses> db.codekata.insertMany([
+...     {
+...       "codekata_id":"1",
+...       "problems_solved":206
+...     },
+...     {
+...         "codekata_id":"2",
+...         "problems_solved":204
+...       },
+...       {
+...         "codekata_id":"3",
+...         "problems_solved":180
+...       },
+...       {
+...         "codekata_id":"4",
+...         "problems_solved":190
+...       },
+...       {
+...         "codekata_id":"5",
+...         "problems_solved":195
+...       }
+ ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("644b7f517701135edb290359"),
+    '1': ObjectId("644b7f517701135edb29035a"),
+    '2': ObjectId("644b7f517701135edb29035b"),
+    '3': ObjectId("644b7f517701135edb29035c"),
+    '4': ObjectId("644b7f517701135edb29035d")
+  }
+}
+zenclasses> db.attendance.insertMany([
+...     {
+...         "user_id":"1",
+...         "attendance":"present"
+...     },
+...     {
+...         "user_id":"2",
+...         "attendance":"present"
+...     },
+...     {
+...         "user_id":"3",
+...         "attendance":"absent "
+...     },
+...     {
+...         "user_id":"4",
+...         "attendance":"absent "
+...     },
+...     {
+...         "user_id":"5",
+...         "attendance":"present"
+...     }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("644b7fc47701135edb29035e"),
+    '1': ObjectId("644b7fc47701135edb29035f"),
+    '2': ObjectId("644b7fc47701135edb290360"),
+    '3': ObjectId("644b7fc47701135edb290361"),
+    '4': ObjectId("644b7fc47701135edb290362")
+  }
+}
+
+zenclasses> db.topics.insertMany([
+...     {
+...         "topic_id":"1",
+...         "topic_name":"javascript",
+...         "topic_date":new Date("2020-10-07")
+...     },
+...     {
+...         "topic_id":"2",
+...         "topic_name":"html",
+...         "topic_date":new Date("2020-10-20")
+...     },
+...     {
+...         "topic_id":"3",
+...         "topic_name":"css",
+...         "topic_date":new Date("2020-10-30")
+...     },
+...     {
+...         "topic_id":"4",
+...         "topic_name":"dom",
+...         "topic_date":new Date("2020-11-15")
+...     },
+...     {
+...         "topic_id":"5",
+...         "topic_name":"react",
+...         "topic_date":new Date("2020-11-28")
+...     }
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("644b804b7701135edb290363"),
+    '1': ObjectId("644b804b7701135edb290364"),
+    '2': ObjectId("644b804b7701135edb290365"),
+    '3': ObjectId("644b804b7701135edb290366"),
+    '4': ObjectId("644b804b7701135edb290367")
+  }
+}
+zenclasses> db.tasks.insertMany([
+...     {
+...         "user_id": "1",
+...         "task_name": "youtube",
+...         "given_date": new Date("2020-10-15"),
+...         "submittion_date": new Date("2020-10-16"),
+...     },
+...     {
+...         "user_id": "2",
+...         "task_name": "calculator app",
+...         "given_date": new Date("2020-10-17"),
+...         "submittion_date": new Date("2020-10-19"),
+...     },
+...     {
+...         "user_id": "3",
+...         "task_name": "shapping app",
+...         "given_date": new Date("2020-11-18"),
+...         "submittion_date": new Date("2020-11-20"),
+...     },
+...     {
+...         "user_id": "4",
+...         "task_name": "tic tac toe app",
+...         "given_date": new Date("2020-11-13"),
+...         "submittion_date": new Date("2020-11-15"),
+...     },
+...     {
+...         "user_id": "5",
+...         "task_name": "dashboard app",
+...         "given_date": new Date("2020-10-15"),
+...         "submittion_date": new Date("2020-10-17"),
+...     }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("644b80ece3f6d96bed68c43d"),
+    '1': ObjectId("644b80ece3f6d96bed68c43e"),
+    '2': ObjectId("644b80ece3f6d96bed68c43f"),
+    '3': ObjectId("644b80ece3f6d96bed68c440"),
+    '4': ObjectId("644b80ece3f6d96bed68c441")
+  }
+}
+zenclasses> db.company_drives.insertMany([
+        {
+...         "company_drives_id":"1",
+...         "user_id":"1",
+...         "company_name":"HCL",
+...         "date":new Date("2020-10-15"),
+...     },
+...     {
+...         "company_drives_id":"2",
+...         "user_id":"2",
+...         "company_name":"INFOSYS",
+...         "date":new Date("2020-10-14"),
+...     },
+...     {
+...         "company_drives_id":"3",
+...         "user_id":"3",
+...         "company_name":"NOKIA",
+...         "date":new Date("2020-10-20"),
+...     },
+...     {
+...         "company_drives_id":"4",
+...         "user_id":"4",
+...         "company_name":"GOOGLE",
+...         "date":new Date("2020-10-25"),
+...     },
+...     {
+...         "company_drives_id":"5",
+...         "user_id":"5",
+...         "company_name":"TCS",
+...         "date":new Date("2020-10-29"),
+...     }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("644b8118e3f6d96bed68c442"),
+    '1': ObjectId("644b8118e3f6d96bed68c443"),
+    '2': ObjectId("644b8118e3f6d96bed68c444"),
+    '3': ObjectId("644b8118e3f6d96bed68c445"),
+    '4': ObjectId("644b8118e3f6d96bed68c446")
+  }
+}
+zenclasses> db.mentors.insertMany([
+        {
+...         "mentor_id":"1",
+...         "mentee's_count":19
+...     },
+...     {
+...         "mentor_id":"2",
+...         "mentee's_count":14
+...     },
+...     {
+...         "mentor_id":"3",
+...         "mentee's_count":17
+...     },
+...     {
+...         "mentor_id":"4",
+...         "mentee's_count":16
+...     },
+...     {
+...         "mentor_id":"5",
+...         "mentee's_count":12
+...     },
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("644b8179e3f6d96bed68c447"),
+    '1': ObjectId("644b8179e3f6d96bed68c448"),
+    '2': ObjectId("644b8179e3f6d96bed68c449"),
+    '3': ObjectId("644b8179e3f6d96bed68c44a"),
+    '4': ObjectId("644b8179e3f6d96bed68c44b")
+  }
+}
+zenclasses> db.tasks.aggregate([
+...     {
+...         $lookup:{
+...             from:"topics",
+...             localField:"user_id",
+...             foreignField:"topic_id",
+...             as:"topic"
+...         }
+...     },
+...     {
+...         $project:{
+...             "topic.topic_name":1,
+...             "topic.topic_date":"$topic.topic_date",
+...             "task_name":1,
+...             "given_date":"$date",
+...             "month":{
+...                 $month:"$topic.topic_date",
+...                 $month:"$given_date",
+...             },
+...             "year":{
+...                 $year:"$topic.topic_date",
+...                 $year:"$given_date",
+...             }
+...         }
+...     },
+...     {
+...         $match:{
+...             "month":10,
+...             "year":2020,
+...         }
+...     },
+...     {
+...             $project: {
+...                 "task_name": 1,
+...                 "given_date": 1,
+...                 "topic.topic_name":1,
+...                 "topic.topic_date": 1,
+...                 "_id": 0,
+...         }
+...     }
+... ])
+[
+  {
+    task_name: 'youtube',
+    topic: [
+      {
+        topic_name: 'javascript',
+        topic_date: [ ISODate("2020-10-07T00:00:00.000Z") ]
+      }
+    ]
+  },
+  {
+    task_name: 'calculator app',
+    topic: [
+      {
+        topic_name: 'html',
+        topic_date: [ ISODate("2020-10-20T00:00:00.000Z") ]
+      }
+    ]
+  },
+  {
+    task_name: 'dashboard app',
+    topic: [
+      {
+        topic_name: 'react',
+        topic_date: [ ISODate("2020-11-28T00:00:00.000Z") ]
+      }
+    ]
+  }
+]
+zenclasses> db.company_drives.aggregate([
+...     {
+...         $project: {
+...             "company_name": "$company_name",
+...             "date": "$date",
+...             "user_id": 1,
+...         },
+...     },
+...     {
+...         $match: {
+...            "date":{$gt: ISODate("2020-10-15T00:00:00.000Z"),$lt:ISODate("2020-10-30T00:00:00.000Z")}
+...         }
+...     },
+...     {
+...         $project: {
+...             "company_name": 1,
+...             "date": "$date",
+...             "user_id": 1,
+...         },
+...     }
+... ])
+[
+  {
+    _id: ObjectId("644b8118e3f6d96bed68c444"),
+    user_id: '3',
+    company_name: 'NOKIA',
+    date: ISODate("2020-10-20T00:00:00.000Z")
+  },
+  {
+    _id: ObjectId("644b8118e3f6d96bed68c445"),
+    user_id: '4',
+    company_name: 'GOOGLE',
+    date: ISODate("2020-10-25T00:00:00.000Z")
+  },
+  {
+    _id: ObjectId("644b8118e3f6d96bed68c446"),
+    user_id: '5',
+    company_name: 'TCS',
+    date: ISODate("2020-10-29T00:00:00.000Z")
+  }
+]
+zenclasses> db.company_drives.aggregate([
+...     {
+...         $lookup: {
+...             from: "users",
+...             localField: "company_drive_id",
+...             foreignField: "user_id",
+...             as: "drive"
+...         }
+...     },
+...     {
+...         $project: {
+...             "Name": "$drive.name",
+...             "company_name": 1,
+...         }
+...     }
+... ])
+[
+  {
+    _id: ObjectId("644b8118e3f6d96bed68c442"),
+    company_name: 'HCL',
+    Name: [ 'dinesh' ]
+  },
+  {
+    _id: ObjectId("644b8118e3f6d96bed68c443"),
+    company_name: 'INFOSYS',
+    Name: [ 'bhuvanesh' ]
+  },
+  {
+    _id: ObjectId("644b8118e3f6d96bed68c444"),
+    company_name: 'NOKIA',
+    Name: [ 'sai' ]
+  },
+  {
+    _id: ObjectId("644b8118e3f6d96bed68c445"),
+    company_name: 'GOOGLE',
+    Name: [ 'kavin' ]
+  },
+  {
+    _id: ObjectId("644b8118e3f6d96bed68c446"),
+    company_name: 'TCS',
+    Name: [ "kannan" ]
+  }
+]
+zenclasses> db.users.aggregate([
+...     {
+...         $lookup: {
+...             from: "codekata",
+...             localField: "user_id",
+...             foreignField: "codekata_id",
+...             as: "codekatadata"
+...         }
+...     }, {
+...         $project: {
+...             "name": "$name",
+...             "problem_solved": "$codekatadata.problems_solved",
+...             "_id": 0,
+...         }
+...     }
+...
+... ])
+[
+  { name: 'dinesh', problem_solved: [ 206 ] },
+  { name: 'bhuvanesh', problem_solved: [ 204 ] },
+  { name: 'sai', problem_solved: [ 180 ] },
+  { name: 'kavin', problem_solved: [ 190 ] },
+  { name: 'kannan', problem_solved: [ 195 ] }
+]
+zenclasses> db.mentors.find({ "mentee's_count": { $gt: 15 } })
+[
+  {
+    _id: ObjectId("644b8179e3f6d96bed68c447"),
+    mentor_id: '1',
+    "mentee's_count": 19
+  },
+  {
+    _id: ObjectId("644b8179e3f6d96bed68c449"),
+    mentor_id: '3',
+    "mentee's_count": 17
+  },
+  {
+    _id: ObjectId("644b8179e3f6d96bed68c44a"),
+    mentor_id: '4',
+    "mentee's_count": 16
+  }
+]
+zenclasses> db.users.aggregate([
+...     {
+...         $lookup: {
+...             from: "attendance",
+...             localField: "user_id",
+...             foreignField: "user_id",
+...             as: "Attendance"
+...         }
+...     },
+...     {
+...         $lookup: {
+...             from: "tasks",
+...             localField: "user_id",
+...             foreignField: "user_id",
+...             as: "sub"
+...         }
+...     },
+...     {
+...         $match: {$or:[
+...           { "Attendance.status": "absent",},
+...           { "sub.submittion_date": {$not:{$gt: ISODate("2020-10-15T00:00:00.000Z"),$lt:ISODate("2020-10-30T00:00:00.000Z")}}}
+...         ]
+...         }
+...     },
+...     {
+...         $project: {
+...             "Name": "$name",
+...             "task_name": "$sub.task_name",
+...             "submittion_date": "$sub.submittion_date",
+...         }
+...     }
+... ])
+[
+  {
+    _id: ObjectId("644b7eafa43da3bf6dd14118"),
+    Name: 'sai',
+    task_name: [ 'shapping app' ],
+    submittion_date: [ ISODate("2020-11-20T00:00:00.000Z") ]
+  },
+  {
+    _id: ObjectId("644b7eafa43da3bf6dd14119"),
+    Name: 'kavin',
+    task_name: [ 'tic tac toe app' ],
+    submittion_date: [ ISODate("2020-11-15T00:00:00.000Z") ]
+  }
+]
